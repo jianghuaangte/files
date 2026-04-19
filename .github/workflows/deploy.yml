@@ -31,6 +31,20 @@ jobs:
       - name: 安装依赖
         run: pnpm install --no-frozen-lockfile
 
+      - name: 下载json文件
+        env:
+          OWNER: ${{ secrets.JSON_REPO_OWNER }}
+          REPO: ${{ secrets.JSON_REPO_NAME }}
+          TAG: jsons
+          FILE: flist-json.tar.gz
+        run: |
+          URL="https://github.com/${OWNER}/${REPO}/releases/download/${TAG}/${FILE}"
+          curl -L \
+            -H "Authorization: Bearer ${{ secrets.JIANG_PAT_TOKEN }}" \
+            -o ${FILE} \
+            "$URL"
+          tar -xzf ${FILE} -C mounts
+
       - name: 构建 VuePress
         run: pnpm build
 
