@@ -1,0 +1,1 @@
+import{_ as o,c as e,a as n,o as a}from"./app-BTs8Fvxg.js";const r={};function s(c,t){return a(),e("div",null,[...t[0]||(t[0]=[n("p",null,"404 Not Found",-1)])])}const _=o(r,[["render",s]]),m=JSON.parse('{"path":"/404.html","title":"","lang":"zh-CN","frontmatter":{"layout":"NotFound"}}');export{_ as comp,m as data};
